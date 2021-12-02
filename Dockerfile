@@ -13,4 +13,3 @@ RUN pip3 install datetime
 RUN pip3 install folium
 RUN pip3 install matplotlib
 RUN pip3 install numpy
-RUN pip3 install os
