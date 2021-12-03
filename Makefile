@@ -1,11 +1,8 @@
 .PHONY: clean
+.RECIPEPREFIX=>
 
-clean:
-	rm -rf Cleandata
+crashes_vs_time.png: trend.py Crashes_Involving_Cyclists.csv
+> python3 trend.py
 
-Cleandata/CyclistCrash.csv: Crashes_Involving_Cyclists.csv clean_data.R
-	mkdir -p Cleandata
-  Rscript clean_data.R
-  
-report.pdf: report.rmd
-	Rscript build-report.R
+report.html: Crashes_Involving_Cyclists.csv crashes_vs_time.png
+> jupyter nbconvert --to html yyan1_to_submit.ipynb
