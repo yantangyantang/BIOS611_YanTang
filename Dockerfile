@@ -13,3 +13,13 @@ RUN pip3 install datetime
 RUN pip3 install folium
 RUN pip3 install matplotlib
 RUN pip3 install numpy
+RUN pip3 install astral
+RUN apt update && apt install -y\
+    texlive-base\
+	texlive-binaries\
+    texlive-latex-base\
+	texlive-latex-recommended\
+	texlive-pictures\
+    texlive-latex-extra
+
+RUN apt update && apt install -y texlive-xetex
