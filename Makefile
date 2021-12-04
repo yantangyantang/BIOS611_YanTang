@@ -23,3 +23,7 @@ crash_vs_time.png: script/crash_vs_time.py source_data/Crashes_Involving_Cyclist
 
 report.html: source_data/Crashes_Involving_Cyclists.csv trend.png traffic_control_type.png contribution_of_control_types.png injury_level.png location_to_road.png crash_vs_time.png
 > jupyter nbconvert --to html yyan1_to_submit.ipynb
+
+#shiny
+shiny: shiny/app.R Crashes_Involving_Cyclists.csv
+> Rscript shiny/app.R
