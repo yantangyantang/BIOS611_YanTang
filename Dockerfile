@@ -1,5 +1,5 @@
 FROM rocker/verse
-MAINTAINER Yan Tang <yyan1@unc.edu>
+MAINTAINER Yan Tang <ytang@unc.edu>
 RUN R -e "install.packages(c('tidyverse','ggplot2','shiny','leaflet','leaflet.extras','shinydashboard','readr','leaflet.extras','dplyr','rgdal'))"
 # RUN R -e "install.packages('shiny')" 
 # # RUN R -e "devtools::install_github(\"rstudio/leaflet\")"
