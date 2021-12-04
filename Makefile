@@ -2,7 +2,6 @@
 .PHONY: shiny
 .RECIPEPREFIX=>
 
-shiny:
 
 figures/trend.png: script/trend.py source_data/Crashes_Involving_Cyclists.csv
 > python3 script/trend.py
