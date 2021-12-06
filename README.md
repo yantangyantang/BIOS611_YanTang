@@ -16,36 +16,34 @@ Build the docker image by using following:
     docker build . -t yyan1
 
 
-**Step 1:**
-To run RStudio, enter the following command:
+**Step 3:**
 
-    docker run \
-	    -p 8787:8787 \
-	    -p 8080:8080 \
-	    -e PASSWORD=bios611 \
-	    -v "$(pwd)":/home/rstudio \
-	    -it yyan1
+To run Jupyter Notebook, enter the following command:
 
-After you connected it, then open Browser, and navigate to http://localhost:8787/.
+
+    docker run -p 8787:8787     -p 8080:8080     -v `pwd`:/home/rstudio      -e PASSWORD=bios611       -it yyan1 sudo -H -u rstudio /bin/bash      -c "cd ~/; jupyter lab --ip 0.0.0.0 --port 8787"
+      
+        
+Copy the second url link that the terminal returns, paste it to a browser and navigate to the page.
+
 
 # Shiny App
-To run Shiny app, you could explore more information about this data.
 
-**Step 1:**
+Due to loading issue of package 'rgdal', please run Shiny outside DockerContainer 
 
-    docker run \
-	    -p 8787:8787 \
-	    -p 8080:8080 \
-	    -e PASSWORD=123456 \
-	    -v "$(pwd)":/home/rstudio \
-	    -it yyan1 sudo -H -u rstudio\
-	    /bin/bash -c "cd ~/scripts; Rscript shiny.R"
-**Step 2:**
-Navigating to your terminal within rstudio and type the following:
 
-    cd scripts; Rscript shiny.R
-Then, you could access your http://localhost:8080/ on your browser
+# Makefile
 
+To use the Makefile included in this repository to build components of the project, run the following code in the terminal within Jupyter Notebook.
+
+Clean the folders:
+
+    make clean
+    
+
+Make the final report (for some reason, latex is not working, so html format is used for the final report.):
+
+    make report.html 
  
 
 

@@ -3,7 +3,6 @@ library(shiny)
 library(tidyverse)
 library(readr)
 library(shinydashboard)
-#new 11.10
 library(leaflet.extras)
 library(dplyr)
 library(rgdal)
@@ -11,20 +10,18 @@ library(rgdal)
 df <- read_csv("source_data/Crashes_Involving_Cyclists.csv");
 df %>% summarize(c_lat=median(LocationLatitude),
                  c_lon=median(LocationLongitude))
-#new 11.10
+
 df$killed_type <- ifelse(df$killed <- 1, "fatal",
                     ifelse(df$killed <- 0, "injured",
                            ifelse(df$killed <- NULL, "unkown")))
 
 ui <- fluidPage(
-  #new 11.10
   mainPanel(
     leafletOutput(outputId = "mymap"),
     absolutePanel(top = 60, left = 20,
                   checkboxInput("markers", "Fatal/Injured", FALSE),
                   checkboxInput("heat", "Occurence", FALSE))),
 
-  #old
  sliderInput(inputId = "Crash_Date_Year",
               label = "Year Range",
               value=c(2015,2021),
@@ -44,18 +41,15 @@ ui <- fluidPage(
   
 #)
 
-# 11.10
 server <- function(input, output, session){
   pal <- colorNumeric(
     palette = c('cyan', 'green', 'dark green', 'orange red', 'red', 'dark red'),
     domain = df$pedalcyclists)
-    #(how to add count??)
     
   pal2 <- colorFactor(
     palette = c('purple', 'yellow', 'blue'),
     domain = df$killed_type
   )
-  #new 11.10 create map
   output$mymap <- renderLeaflet({
     sdf <- df %>% filter(Crash_Date_Year >= input$Crash_Date_Year[1] &
                            Crash_Date_Year <= input$Crash_Date_Year[2]);
@@ -69,7 +63,6 @@ server <- function(input, output, session){
                  color = ~pal(pedalcyclists), fillOpacity = 0.5)
   })
  
-  #11.10 checkboxes 
   observe({
     sdf <- df %>% filter(Crash_Date_Year >= input$Crash_Date_Year[1] &
                            Crash_Date_Year <= input$Crash_Date_Year[2]);
@@ -91,7 +84,7 @@ server <- function(input, output, session){
     if (input$heat){
       proxy %>% addHeatmap(lng = ~LocationLongitude, 
                            lat = ~LocationLatitude, 
-                           intensity = ~pedalcyclists, #should be added count 
+                           intensity = ~pedalcyclists, 
                            blur = 10, max = 0.05, radius = 15)
     }
     else{
