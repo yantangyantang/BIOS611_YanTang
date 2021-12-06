@@ -62,5 +62,5 @@ for index, row in Crash_cleaned.iterrows():
 sns.displot(x='Crash_Date_Month', hue='time_of_the_day', multiple="dodge", alpha=0.5, aspect = 1.5, data=Crash_cleaned)
 plt.xticks(rotation=45)
 
-plt.savefig("crash_vs_time", bbox_inches = "tight")
+plt.savefig("figures/crash_vs_time.png", bbox_inches = "tight")
 

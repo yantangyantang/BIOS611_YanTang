@@ -60,4 +60,4 @@ ax.set_title("Injury Analysis")
 # show plot
 plt.show()
 
-plt.savefig("injury_level", bbox_inches = "tight")
+plt.savefig("figures/injury_level", bbox_inches = "tight")

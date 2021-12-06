@@ -1,11 +1,11 @@
 FROM rocker/verse
 MAINTAINER Yan Tang <ytang@unc.edu>
 RUN R -e "install.packages(c('tidyverse','ggplot2','shiny','leaflet','leaflet.extras','shinydashboard','readr','leaflet.extras','dplyr','rgdal'))"
-# RUN R -e "install.packages('shiny')" 
-# # RUN R -e "devtools::install_github(\"rstudio/leaflet\")"
-# RUN R -e "install.packages(\"leaflet\")"
-# RUN R -r "install.packages(\"tinytex\"); tinytex::install_tinytex(dir=\"/opt/tinytex\")"
-# RUN R -r "install.tackages(\"leaflet.extras\")"
+RUN R -e "install.packages('shiny')" 
+RUN R -e "install.packages(\"leaflet\")"
+RUN R -r "install.packages(\"tinytex\");"
+RUN R -e "tinytex::install_tinytex(dir=\"/opt/tinytex\")"
+RUN R -r "install.packages(\"leaflet.extras\")"
 RUN apt update -y && apt install -y python3-pip
 RUN pip3 install jupyter jupyterlab
 RUN pip3 install pandas

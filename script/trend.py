@@ -25,5 +25,5 @@ plt.legend(loc="center left", bbox_to_anchor=(0.5, 1.15), ncol=3)
 fig.set_facecolor('#F0FFFF')
 
 
-fig.get_figure().savefig("trend", bbox_inches='tight')
+fig.get_figure().savefig('figures/trend.png', bbox_inches='tight')
 

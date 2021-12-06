@@ -38,6 +38,7 @@ figures/location_to_road.png:\
 figures/crash_vs_time.png:\
  script/crash_vs_time.py\
  source_data/Crashes_Involving_Cyclists.csv
+> mkdir -p figures
 > python3 script/crash_vs_time.py
 
 report.html:\
@@ -45,7 +46,9 @@ report.html:\
  figures/trend.png\
  figures/traffic_control_type.png\
  figures/contribution_of_control_types.png\
- figures/injury_level.png location_to_road.png crash_vs_time.png
+ figures/injury_level.png\
+ figures/location_to_road.png\
+ figures/crash_vs_time.png
 > jupyter nbconvert --to html yyan1_to_submit.ipynb
 
 #shiny

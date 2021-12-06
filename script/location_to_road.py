@@ -14,4 +14,4 @@ Crash_cleaned = Crash[(Crash['Crash_Date_Year'] != 2015) & (Crash['Crash_Date_Ye
 sns.displot(x='Crash_Date_Month', hue='LocationRelationToRoad', multiple="stack", alpha=0.5, aspect = 1.5, data=Crash_cleaned)
 plt.xticks(rotation=45)
 
-plt.savefig("location_to_road", bbox_inches = "tight")
+plt.savefig("figures/location_to_road", bbox_inches = "tight")

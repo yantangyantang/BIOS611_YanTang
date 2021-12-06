@@ -20,4 +20,4 @@ plt.xticks(rotation=70)
 
 figb.set_facecolor('lightgrey')
 
-plt.savefig("traffic_control_type", bbox_inches = "tight")
+plt.savefig("figures/traffic_control_type", bbox_inches = "tight")

@@ -13,4 +13,4 @@ Crash_cleaned = Crash[(Crash['Crash_Date_Year'] != 2015) & (Crash['Crash_Date_Ye
 sns.displot(Crash_cleaned, x="TrafficControlType", hue="Crash_Date_Year", kind="ecdf", color = 'dark2')
 plt.xticks(rotation=75)
 
-plt.savefig("contribution_of_control_types", bbox_inches = "tight")
+plt.savefig("figures/contribution_of_control_types", bbox_inches = "tight")
