@@ -52,5 +52,5 @@ report.html:\
 > jupyter nbconvert --to html yyan1_to_submit.ipynb
 
 #shiny
-shiny: shiny/app.R Crashes_Involving_Cyclists.csv
+shiny: shiny/app.R source_data/Crashes_Involving_Cyclists.csv
 > Rscript shiny/app.R

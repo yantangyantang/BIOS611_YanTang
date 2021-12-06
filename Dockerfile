@@ -5,7 +5,10 @@ RUN R -e "install.packages('shiny')"
 RUN R -e "install.packages(\"leaflet\")"
 RUN R -r "install.packages(\"tinytex\");"
 RUN R -e "tinytex::install_tinytex(dir=\"/opt/tinytex\")"
-RUN R -r "install.packages(\"leaflet.extras\")"
+RUN R -e "install.packages(\"leaflet.extras\")"
+RUN R -e "install.packages('shinydashboard')" 
+RUN R -e "install.packages('sp')" 
+RUN R -e "install.packages('rgdal')"
 RUN apt update -y && apt install -y python3-pip
 RUN pip3 install jupyter jupyterlab
 RUN pip3 install pandas

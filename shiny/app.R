@@ -8,7 +8,7 @@ library(leaflet.extras)
 library(dplyr)
 library(rgdal)
 
-df <- read_csv("Crashes_Involving_Cyclists.csv");
+df <- read_csv("source_data/Crashes_Involving_Cyclists.csv");
 df %>% summarize(c_lat=median(LocationLatitude),
                  c_lon=median(LocationLongitude))
 #new 11.10
